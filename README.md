@@ -5,12 +5,17 @@
 
 使用方式
 ```
-BaseDistributedLockProperties properties = new RedisDistributedLockProperties();
+    @Resource
+    private DistributedLockFactoryManager distributedLockFactoryManager;
+    
+    public void doSomething() {
+        BaseDistributedLockProperties properties = new RedisDistributedLockProperties();
         properties.setResourceId("your resource id");
         properties.setExpires(Duration.ofSeconds(5));
         properties.setLockTimeout(...);
-
+    
         DistributedLock lock = distributedLockFactoryManager.get(properties);
+    }
 ```
 
 TODO
