@@ -24,12 +24,40 @@ public abstract class BaseDistributedLockProperties {
     }
 
     /**
+     * 设置资源ID
+     * @param resourceId
+     *      resourceId
+     */
+    public abstract void setResourceId(String resourceId);
+
+    /**
      * 超时时间
      */
     protected Duration getLockTimeout() {
 
         return Duration.ZERO;
     }
+
+    /**
+     * 设置超时时间
+     * @param lockTimeout
+     *      lockTimeout
+     */
+    public abstract void setLockTimeout(Duration lockTimeout);
+
+    /**
+     * 获取key到期时间
+     * @return
+     *      return
+     */
+    public abstract Duration getExpires();
+
+    /**
+     * 设置key过期时间
+     * @param expires
+     *      expires
+     */
+    public abstract void setExpires(Duration expires);
 
     /**
      * 默认的processId，这个可以不重写

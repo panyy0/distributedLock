@@ -17,26 +17,36 @@ public class RedisDistributedLockProperties extends BaseDistributedLockPropertie
      */
     private Duration expires;
 
+    private Duration lockTimeout;
+
     @Override
     public String getResourceId() {
         return resourceId;
     }
 
+    @Override
     public void setResourceId(String resourceId) {
         this.resourceId = resourceId;
     }
 
+    @Override
     public Duration getExpires() {
         return expires;
     }
 
+    @Override
     public void setExpires(Duration expires) {
         this.expires = expires;
     }
 
     @Override
     protected Duration getLockTimeout() {
-        return super.getLockTimeout();
+        return lockTimeout == null ? super.getLockTimeout() : this.lockTimeout;
+    }
+
+    @Override
+    public void setLockTimeout(Duration lockTimeout) {
+        this.lockTimeout = lockTimeout;
     }
 
     @Override
