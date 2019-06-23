@@ -12,3 +12,8 @@ BaseDistributedLockProperties properties = new RedisDistributedLockProperties();
 
         DistributedLock lock = distributedLockFactoryManager.get(properties);
 ```
+
+TODO
+
+1. spring集成方法
+2. zookeeper 分布式锁
